@@ -1,8 +1,8 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { LevelIndicator } from "@/components/LevelIndicator";
-import { useLevelSensor } from "@/hooks/useLevelSensor";
+import { LevelIndicator } from "../components/LevelIndicator";
+import { useLevelSensor } from "../hooks/useLevelSensor";
 
 const TOLERANCE_DEG = 2;
 

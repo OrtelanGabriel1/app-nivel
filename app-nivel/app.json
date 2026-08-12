@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "level-app",
-    "slug": "level-app",
+    "name": "app-nivel",
+    "slug": "app-nivel",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "levelapp",
+    "scheme": "appnivel",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "splash": {
@@ -15,14 +15,14 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.example.levelapp"
+      "bundleIdentifier": "com.example.appnivel"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#0F172A"
       },
-      "package": "com.example.levelapp"
+      "package": "com.example.appnivel"
     },
     "web": {
       "bundler": "metro",
@@ -40,9 +40,6 @@
           "backgroundColor": "#0F172A"
         }
       ]
-    ],
-    "experiments": {
-      "typedRoutes": true
-    }
+    ]
   }
 }

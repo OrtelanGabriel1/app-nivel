@@ -1,18 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import { Animated, StyleSheet, View, useWindowDimensions } from "react-native";
 
-type Props = {
-  tiltX: number;
-  tiltY: number;
-  isLevel: boolean;
-};
-
 const RING_SIZE = 260;
 const BUBBLE_SIZE = 56;
 // Quantos graus de inclinação levam a bolha até a borda do anel
 const MAX_TILT_FOR_EDGE = 25;
 
-export function LevelIndicator({ tiltX, tiltY, isLevel }: Props) {
+export function LevelIndicator({ tiltX, tiltY, isLevel }) {
   const bubbleX = useRef(new Animated.Value(0)).current;
   const bubbleY = useRef(new Animated.Value(0)).current;
   const colorAnim = useRef(new Animated.Value(0)).current;

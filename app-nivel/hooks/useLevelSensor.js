@@ -1,17 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Accelerometer } from "expo-sensors";
 
-export type LevelReading = {
-  /** Inclinação no eixo X (esquerda/direita), em graus */
-  tiltX: number;
-  /** Inclinação no eixo Y (frente/trás), em graus */
-  tiltY: number;
-  /** Módulo total de inclinação, em graus */
-  tiltTotal: number;
-  /** true se estiver dentro da tolerância definida como "plano" */
-  isLevel: boolean;
-};
-
 const UPDATE_INTERVAL_MS = 60;
 // Suavização exponencial para evitar tremulação da leitura
 const SMOOTHING = 0.15;
@@ -20,22 +9,21 @@ const SMOOTHING = 0.15;
  * Hook que usa o acelerômetro do dispositivo para determinar se a
  * superfície onde o aparelho está apoiado está plana (nivelada).
  *
- * @param toleranceDeg ângulo máximo (em graus) para considerar "plano"
+ * @param {number} toleranceDeg ângulo máximo (em graus) para considerar "plano"
  */
 export function useLevelSensor(toleranceDeg = 2) {
-  const [reading, setReading] = useState<LevelReading>({
+  const [reading, setReading] = useState({
     tiltX: 0,
     tiltY: 0,
     tiltTotal: 0,
     isLevel: false,
   });
-  const [available, setAvailable] = useState<boolean | null>(null);
+  const [available, setAvailable] = useState(null);
 
   const smoothed = useRef({ x: 0, y: 0, z: 1 });
 
   useEffect(() => {
-    let subscription: ReturnType<typeof Accelerometer.addListener> | null =
-      null;
+    let subscription = null;
 
     Accelerometer.isAvailableAsync().then((isAvailable) => {
       setAvailable(isAvailable);
